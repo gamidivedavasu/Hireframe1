@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TemplateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/createtemplate', [TemplateController::class, 'viewforcreatetemplate'])->name('routeforcreatetemplate');
+Route::post('/createtemplate', [TemplateController::class, 'storetemplate']);
+
+Route::get('/listtemplates', [TemplateController::class, 'listtemplates']);
