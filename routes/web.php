@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TemplateController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +22,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+Route::post('/logout', [LogoutController::class, 'index'])->name('logout');
+
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'store']);
+
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::post('/register', [RegisterController::class, 'store']);
+
 Route::get('/createtemplate', [TemplateController::class, 'viewforcreatetemplate'])->name('routeforcreatetemplate');
 Route::post('/createtemplate', [TemplateController::class, 'storetemplate']);
 
 Route::get('/listtemplates', [TemplateController::class, 'listtemplates']);
+
+
+Route::get('/posts', function () {
+    return view('posts.index');
+});
+
