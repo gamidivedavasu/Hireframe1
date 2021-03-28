@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="{{ route('routeforcreatetemplate') }}" method="POST">
+    <form action="{{ route('createtemplate') }}" method="POST">
         @csrf
         Let's name your template:
         <input type="text" name="templatename" id="templateid"> 

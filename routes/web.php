@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
@@ -32,11 +33,13 @@ Route::post('/login', [LoginController::class, 'store']);
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/createtemplate', [TemplateController::class, 'viewforcreatetemplate'])->name('routeforcreatetemplate');
+/* Routes for Templates */
+Route::get('/createtemplate', [TemplateController::class, 'viewforcreatetemplate'])->name('createtemplate');
 Route::post('/createtemplate', [TemplateController::class, 'storetemplate']);
-
 Route::get('/listtemplates', [TemplateController::class, 'listtemplates']);
 
+/* Routes for Feedback */
+Route::patch('/generatefeedback/{id?}',[FeedbackController::class, 'generatefeedback'])->name('generatefeedback');
 
 Route::get('/posts', function () {
     return view('posts.index');

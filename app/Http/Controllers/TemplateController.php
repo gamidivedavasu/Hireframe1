@@ -39,4 +39,7 @@ class TemplateController extends Controller
         $data = Template::all();
         return view('listtemplates')->with('data',$data);
     }
+
+    public function edittemplate(){
+    }
 }
