@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Template;
 use Illuminate\Http\Request;
 
 class FeedbackController extends Controller
@@ -11,6 +12,6 @@ class FeedbackController extends Controller
     
     public function generatefeedback($id){
         $templatedata = Template::find($id);
-        return view('Generatefeeback')->with('templatedata',$templatedata);
+        return view('Generatefeedback')->with('templatedata',$templatedata);
     }
 }

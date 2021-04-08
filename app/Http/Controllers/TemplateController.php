@@ -27,7 +27,7 @@ class TemplateController extends Controller
         
         $data->save();
         DB::commit();
-        dd('success');
+        return redirect('/listtemplates');
             }
             catch (\Throwable $th) {
                 DB::rollBack();
