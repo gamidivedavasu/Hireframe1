@@ -1,13 +1,5 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Generate Feedback</title>
-</head>
-<body>
-    
+@extends('layouts.app')
+@section('content')
     <h1>Select</h1>
-    Test
-</body>
-</html>
+    Generate feedback
+@endsection

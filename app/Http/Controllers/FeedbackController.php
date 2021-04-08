@@ -8,7 +8,9 @@ class FeedbackController extends Controller
 {
     public function index(){}
 
+    
     public function generatefeedback($id){
-        dd($id);
+        $templatedata = Template::find($id);
+        return view('Generatefeeback')->with('templatedata',$templatedata);
     }
 }

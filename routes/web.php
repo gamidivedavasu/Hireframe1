@@ -38,7 +38,7 @@ Route::post('/createtemplate', [TemplateController::class, 'storetemplate']);
 Route::get('/listtemplates', [TemplateController::class, 'listtemplates']);
 
 /* Routes for Feedback */
-Route::patch('/generatefeedback/{id?}',[FeedbackController::class, 'generatefeedback'])->name('generatefeedback');
+Route::get('/generatefeedback/{id?}',[FeedbackController::class, 'generatefeedback'])->name('generatefeedback');
 
 Route::get('/posts', function () {
     return view('posts.index');

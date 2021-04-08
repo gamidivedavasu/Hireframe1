@@ -34,7 +34,9 @@ class TemplateController extends Controller
                 dd([$th->getMessage()]);
             }
     }
-
+    /**
+    * Function to return list of templates
+    */
     public function listtemplates(){
         $data = Template::all();
         return view('listtemplates')->with('data',$data);

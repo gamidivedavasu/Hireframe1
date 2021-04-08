@@ -10,7 +10,9 @@
                   <td>{{$d->section1body}}</td>
                   <td><a href="{{route('generatefeedback',$d->id)}}">Select feedback</a></td>
     </tr>
+    @method('PATCH')
     @endforeach
                 </tbody>
               </table>
-    @endsection
+              
+              @endsection       
