@@ -41,14 +41,10 @@
                             <a class="nav-link" href="{{ route('dashboard') }}">Dashboard <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-<<<<<<< Updated upstream
                             <a class="nav-link" href='/jobs'>Jobs <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href={{ route('listtemplates') }}>Templates <span class="sr-only">(current)</span></a>
-=======
-                            <a class="nav-link" href="jobs">Jobs <span class="sr-only">(current)</span></a>
->>>>>>> Stashed changes
                         </li>
                         @if(Auth::user())
                             @if(auth()->user('id')['type'] == 'company')
