@@ -16,7 +16,6 @@ class JobsController extends Controller
     {
         // retreive all the jobs 
         //$jobs = Job::all();
-       
         $jobs = Job::orderBy('jobClosingDate', 'asc')->paginate(10);
         return view('jobs.index')->with('jobs', $jobs);
     }
