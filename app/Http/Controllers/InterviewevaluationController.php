@@ -47,6 +47,8 @@ class InterviewevaluationController extends Controller
            $data= new InterviewEvaluation([
                'name'=>$request->get('n'),
                'category'=>$category_string,
+               'jobrole'=>$request->get('j'),
+               'option'=>$request->get('opt'),
                'description'=>$request->get('d')
          ]);
          $data->save();
