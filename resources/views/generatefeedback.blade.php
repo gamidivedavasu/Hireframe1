@@ -1,17 +1,20 @@
 @extends('layouts.app')
 @section('content')
-    <h1>Select</h1>
+<form action="{{ route('storefeedback') }}" method="POST">
+    @csrf
+    <h1>
     Generate feedback
-    {{  $templatedata->templatename }}
+    </h1>
+    Template name: {{  $templatedata->templatename }}
     <br>
-    Hello Applicant name
+    Hello <input type="">$applicant name
     <br>
-    (Template section 1) This is regarding your application for the "Job role" position
+    <textarea id="header" name="header" >{{ $templatedata->section1body }} "Job role" position</textarea>
     <br>
-    (Template section 2) "based on interview feedback" We are glad to inform you about your selection/ We have considered other candidates.
+    <textarea id="body-result" name="body-result" > {{  $templatedata->section2body }} </textarea>
     <br>
-    (Template section 3) Here is the feedback for you.
+    <textarea id="body-feedback" name="body-feedback" > {{  $templatedata->section3body }} </textarea>
     <br>
-    Kind regards,
-    HappyTech
+    <button type="submit"> Generate feedback</button>
+</form>
 @endsection

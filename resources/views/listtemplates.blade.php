@@ -12,7 +12,7 @@
                   <td>{{$d->section2body}}</td>
                   <td>{{$d->section3}}</td>
                   <td>{{$d->section3body}}</td>
-                  <td><a href="{{route('generatefeedback',$d->id)}}">Select feedback</a></td>
+                  <td><a href="{{route('generatefeedback',$d->id)}}">Select Template</a></td>
     </tr>
     @method('PATCH')
     @endforeach

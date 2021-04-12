@@ -5,7 +5,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\JobsController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -33,8 +32,6 @@ Route::post('/login', [LoginController::class, 'store']);
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
 
-
-
 /* Routes for Templates */
 Route::get('/createtemplate', [TemplateController::class, 'viewforcreatetemplate'])->name('createtemplate');
 Route::post('/createtemplate', [TemplateController::class, 'storetemplate']);
@@ -42,7 +39,7 @@ Route::get('/listtemplates', [TemplateController::class, 'listtemplates'])->name
 
 /* Routes for Feedback */
 Route::get('/generatefeedback/{id?}',[FeedbackController::class, 'generatefeedback'])->name('generatefeedback');
-
+Route::post('/generatefeedback',[FeedbackController::class, 'storefeedback'])->name('storefeedback');
 
 
 Route::get('/posts', function () {
