@@ -14,4 +14,8 @@ class FeedbackController extends Controller
         $templatedata = Template::find($id);
         return view('Generatefeedback')->with('templatedata',$templatedata);
     }
+
+    public function storefeedback(Request $REQUEST){
+        dd('Inside');
+    }
 }

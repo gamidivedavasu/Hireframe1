@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Interviewevaluation extends Model
 {
    // use HasFactory;
-   protected $fillable = ['name','category','description'];
+   protected $fillable = ['name','category','jobrole','option','description'];
 }

@@ -14,6 +14,14 @@
                                 <input type="text" name="n" class="form-control" value=""/>
                                
                             </div> <br>
+
+
+                            <label><strong>Job Role</strong></label></strong></label>
+    
+                                <input type="text" name="j" class="form-control" value=""/>
+                               
+                            </div> <br>
+
                             <div class="form-group">
                                 <label><strong>TELEPHONIC INTERVIEW AND ONLINE INTERVIEW</b></label><br>
                                 </strong></label><br>
@@ -28,6 +36,14 @@
                                 <label><input type="checkbox" name="category[]" value="Gestures">Project Handling</label>
                                 </strong></label><br>                          
                             </div>  </strong></label><br>
+
+                            <div class="form-group">
+                            <label class="radio-inline">
+                               <input type="radio" id="option2"  value="selected" name="opt">Selected</label>
+                         <label class="radio-inline">
+                        <input type="radio" id="option2"  value="rejected"name="opt">rejected</label>
+                           </div>
+                            
                             <div class="form-group">
                                 <label><strong>Description :</strong></label>
                                 <textarea class="form-control" rows="4" cols="40" name="d" value="description"></textarea>
