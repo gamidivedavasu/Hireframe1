@@ -5,16 +5,22 @@
     <h1>
     Generate feedback
     </h1>
-    Template name: {{  $templatedata->templatename }}
+    Template name: {{ $data->templatename }}
     <br>
-    Hello <input type="">$applicant name
+    Hello <select id= "selectuser" name ="selectuser" >
+        <option value=" disabled selected">Please select user</option>        
+    @foreach($usersdata as $user)
+    <option value="{{$user->id}}">{{ $user->name }}</option>
+    @endforeach
     <br>
-    <textarea id="header" name="header" >{{ $templatedata->section1body }} "Job role" position</textarea>
     <br>
-    <textarea id="body-result" name="body-result" > {{  $templatedata->section2body }} </textarea>
+    <textarea id="header" name="header" >{{ $data->section1body }} "Job role" position</textarea>
     <br>
-    <textarea id="body-feedback" name="body-feedback" > {{  $templatedata->section3body }} </textarea>
+    <textarea id="body-result" name="body-result" > {{  $data->section2body }} </textarea>
     <br>
+    <textarea id="body-feedback" name="body-feedback" > {{  $data->section3body }} </textarea>
+    <br>
+     
     <button type="submit"> Generate feedback</button>
 </form>
 @endsection

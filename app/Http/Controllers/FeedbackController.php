@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Feedback;
 use App\Models\Template;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FeedbackController extends Controller
 {
@@ -12,10 +14,25 @@ class FeedbackController extends Controller
     
     public function generatefeedback($id){
         $templatedata = Template::find($id);
-        return view('Generatefeedback')->with('templatedata',$templatedata);
+        $usersdata= DB::table('users')->get();
+        return view('Generatefeedback')->with('usersdata',$usersdata)->with('data',$templatedata);
     }
 
     public function storefeedback(Request $REQUEST){
-        dd('Inside');
-    }
+        DB::beginTransaction();
+        try {
+        $data = new Feedback([
+            'header'=>$REQUEST->get('header'),
+            'bodyresult'=>$REQUEST->get('body-result'),
+            'bodyfeedback'=>$REQUEST->get('body-feedback')
+        ]);
+    $data->save();
+        DB::commit();
+        return redirect('/');
+            }
+            catch (\Throwable $th) {
+                DB::rollBack();
+                dd([$th->getMessage()]);
+            }
+}
 }
