@@ -44,9 +44,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
+/*
     public function getIsAdminAttribute()
     {
-        return dd('In model');
+        dd($this);
+        $temp=$this->where('isadmin',true)->exists();
+        dd($temp);
     }
+    */
 }
