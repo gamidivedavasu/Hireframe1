@@ -33,7 +33,9 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-
+    protected $attributes = [
+        'isadmin' => 0,
+     ];
     /**
      * The attributes that should be cast to native types.
      *
@@ -42,4 +44,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getIsAdminAttribute()
+    {
+        return dd('In model');
+    }
 }

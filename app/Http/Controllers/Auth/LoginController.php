@@ -28,7 +28,8 @@ class LoginController extends Controller
         if (!auth()->attempt($request->only('email','password'), $request->remember)){
             return back()->with('status', 'Invalid login details');
         }
-
+        if (auth()->user()->get('isadmin')==true) { 
+             dd('is admin');}
         return redirect()->route('dashboard');
 
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Feedback;
 use App\Models\Template;
 use Illuminate\Http\Request;
@@ -14,7 +15,7 @@ class FeedbackController extends Controller
     
     public function generatefeedback($id){
         $templatedata = Template::find($id);
-        $usersdata= DB::table('users')->get();
+        $usersdata= User::where('isadmin',0)->get();
         return view('Generatefeedback')->with('usersdata',$usersdata)->with('data',$templatedata);
     }
 

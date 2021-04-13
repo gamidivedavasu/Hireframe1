@@ -90,6 +90,13 @@
         </nav>
 
         <div class="container">
+            <br>
+                        @if(Auth::user())
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        @csrf
+                            <button type="submit"> Logout
+                        @endif
+
             @include('inc.messages')
             @yield('content')
         </div>
