@@ -22,6 +22,9 @@ use App\Http\Controllers\Auth\RegisterController;
 
 Route::get('/', [HomeController::class, 'index']);
 
+Route::get('/jobs', [JobsController::class, 'index']); 
+Route::get('/jobs/{id?}', [JobsController::class, 'show']);
+
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
