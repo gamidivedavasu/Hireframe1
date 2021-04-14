@@ -13,6 +13,15 @@ class TemplateController extends Controller
     }
 
     public function storetemplate(Request $REQUEST){
+        $this->validate($request, [
+            'templatename' => 'required',
+            'section1' => 'required',
+            'section2' => 'required',
+            'section3' => 'required',
+            'section1body' => 'required',
+            'section2body' => 'required',
+            'section3body' => 'required',
+        ]);
         DB::beginTransaction();
         try {
             $data = new Template([

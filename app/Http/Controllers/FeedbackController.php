@@ -20,6 +20,11 @@ class FeedbackController extends Controller
     }
 
     public function storefeedback(Request $REQUEST){
+        $this->validate($request, [
+            'header' => 'required',
+            'bodyresult' => 'required',
+            'bodyfeedback' => 'required',
+        ]);
         DB::beginTransaction();
         try {
         $data = new Feedback([
