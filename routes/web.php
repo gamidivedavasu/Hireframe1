@@ -36,7 +36,6 @@ Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
 
 Route::group([
-    
     'middleware' => ['auth', 'admin']
 ], function() {
 /* Routes for Templates */
