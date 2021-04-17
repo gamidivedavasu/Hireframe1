@@ -13,7 +13,7 @@ class TemplateController extends Controller
     }
 
     public function storetemplate(Request $REQUEST){
-        $this->validate($request, [
+        $this->validate($REQUEST, [
             'templatename' => 'required',
             'section1' => 'required',
             'section2' => 'required',
@@ -83,5 +83,22 @@ class TemplateController extends Controller
                 DB::rollBack();
                 dd([$th->getMessage()]);
             }
+    }
+    public function deletetemplate($id){
+        $templatedata = Template::find($id);
+
+        if (!isset($templatedata)){
+            return redirect('/listtemplates')->with('error', 'Template not Found');
+        }
+        DB::beginTransaction();
+        try{
+        $templatedata->delete();
+        DB::commit();
+        return redirect('/listtemplates')->with('success', 'Template Removed');
+        }
+        catch (\Throwable $th) {
+            DB::rollBack();
+            dd([$th->getMessage()]);
+        }
     }
 }

@@ -14,6 +14,7 @@
                   <td>{{$d->section3body}}</td>
                   <td><a href="{{route('generatefeedback',$d->id)}}">Select Template to Generate Feedback</a></td>
                   <td><a href="{{route('edittemplate',$d->id)}}">Edit Template</a></td>
+                  <td><a href="{{route('deletetemplate',$d->id)}}">Delete Template</a></td>
     </tr>
     @method('PATCH')
     @endforeach

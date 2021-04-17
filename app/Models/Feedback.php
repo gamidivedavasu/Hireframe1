@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Feedback extends Model
 {
     use HasFactory;
-    protected $fillable= ['header','bodyresult','bodyfeedback'];
+    protected $fillable= ['header','bodyresult','bodyfeedback','userid'];
 }

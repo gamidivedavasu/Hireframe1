@@ -27,6 +27,6 @@
         Enter the contents for section 3
         <input type="text" name="section3body" value="{{$data->section3body}}">
         <br>
-        <button type="submit"> Create template</button>
+        <button type="submit"> Update template</button>
     </form>
 @endsection

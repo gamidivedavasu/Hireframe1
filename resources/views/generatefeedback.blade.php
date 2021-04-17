@@ -5,13 +5,15 @@
     <h1>
     Generate feedback
     </h1>
+    <h2>
     Template name: {{ $data->templatename }}
-    <br>
+    </h2>
     Hello <select id= "selectuser" name ="selectuser" >
-        <option value=" disabled selected">Please select user</option>        
+        <option value="disabled selected">Please select user</option>        
     @foreach($usersdata as $user)
     <option value="{{$user->id}}">{{ $user->name }}</option>
     @endforeach
+    </select>
     <br>
     <br>
     <textarea id="header" name="header" >{{ $data->section1body }} "Job role" position</textarea>
