@@ -96,16 +96,18 @@
         </nav>
 
         <div class="container">
-            <br>
-                        @if(Auth::user())
+            @include('inc.messages')
+            @yield('content')
+        </div>
+    </div>
+    <div class="footer">
+        @if(Auth::user())
                         <form id="logout-form" action="{{ route('logout') }}" method="POST">
                         @csrf
                             <button type="submit"> Logout
                         @endif
-
-            @include('inc.messages')
-            @yield('content')
-        </div>
+                            
+                            <br>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 </body>

@@ -36,6 +36,7 @@ Route::post('/login', [LoginController::class, 'store']);
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
 
+/* Routes for Admins */
 Route::group([
     'middleware' => ['auth', 'admin']
 ], function() {
@@ -46,6 +47,7 @@ Route::get('/download-pdf',[PdfFeedback::class,'downloadPDF']);
 Route::get('/createtemplate', [TemplateController::class, 'viewforcreatetemplate'])->name('createtemplate');
 Route::post('/createtemplate', [TemplateController::class, 'storetemplate']);
 Route::get('/listtemplates', [TemplateController::class, 'listtemplates'])->name('listtemplates');
+Route::get('/edittemplate/{id?}', [TemplateController::class, 'edittemplate'])->name('edittemplate');
 
 /* Routes for Feedback */
 Route::get('/generatefeedback/{id?}',[FeedbackController::class, 'generatefeedback'])->name('generatefeedback');
