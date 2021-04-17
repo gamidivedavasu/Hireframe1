@@ -57,9 +57,10 @@ Route::get('/posts', function () {
 });
 
 /* Routes for Interview */
+Route::get('data','App\Http\Controllers\InterviewevaluationController@create')->name('interviewpage');
 Route::post('data','App\Http\Controllers\InterviewevaluationController@store')->name('addform');
 
-Route::get('/interviewpage', function (){
-    return view('interview.interviewevaluation');
-});
+
+
+
 });

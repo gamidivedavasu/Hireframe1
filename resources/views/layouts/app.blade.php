@@ -43,6 +43,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href='/jobs'>Jobs <span class="sr-only">(current)</span></a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href='{{route("interviewpage")}}'>Interview Evaluation <span class="sr-only">(current)</span></a>
+                        </li>
+
                         @if(Auth::user())
                             @if(auth()->user('id')['type'] == 'company')
                                 <li class="nav-item">
@@ -50,7 +54,9 @@
                                 </li>
                             @endif
                         @endif
-                    </ul>
+
+            </ul>
+                    
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

@@ -7,14 +7,21 @@
                        </div>
                        @endif
 
-<form action="{{route('addform')}}" method="Post">
+<form action="{{route('addform')}}" method="Post" class="form-group">
        @csrf
-<label><strong>Candidate Name</strong></label></strong></label>
-    
-                                <input type="text" name="n" class="form-control" value=""/>
-                               
-                            </div> <br>
 
+
+       <div class="form-group">
+                              <label><strong>Candidate Name</strong></label></strong></label>
+    
+                              <select name="n" class="form-control">
+                                  <option>Select User</option>
+                                      @foreach($data as $x)
+                                        <option>{{$x->name}}</option>
+                                      @endforeach
+                                </select>
+                            </div> 
+                            <div class="form-group">
 
                             <label><strong>Job Role</strong></label></strong></label>
     

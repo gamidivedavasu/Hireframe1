@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Interviewevaluation;
-
+use App\Models\User;
 class InterviewevaluationController extends Controller
 {
     /**
@@ -13,8 +13,8 @@ class InterviewevaluationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {             
+           //
     }
 
     /**
@@ -24,7 +24,8 @@ class InterviewevaluationController extends Controller
      */
     public function create()
     {
-        //
+        $data = User::where('isadmin','0')->get();
+        return view('interview.interviewevaluation',compact('data'));
     }
 
     /**
@@ -100,4 +101,12 @@ class InterviewevaluationController extends Controller
     {
         //
     }
+
+
+
+
+
+ 
+
 }
+ 
