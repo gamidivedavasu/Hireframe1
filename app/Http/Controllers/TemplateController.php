@@ -56,9 +56,9 @@ class TemplateController extends Controller
         return view('edittemplate')->with('data',$templatedata);
     }
 
-    public function updatetemplate(){
-
-        $this->validate($request, [
+    public function updatetemplate(Request $REQUEST, $id){
+        $data=Template::find($id);
+        $this->validate($REQUEST, [
             'section1' => 'required',
             'section2' => 'required',
             'section3' => 'required',
@@ -68,21 +68,18 @@ class TemplateController extends Controller
         ]);
         DB::beginTransaction();
         try {
-            $data = new Template([
-                'templatename'=>$REQUEST->get('templatename'),
-                'section1'=>$REQUEST->get('section1'),
-                'section2'=>$REQUEST->get('section2'),
-                'section3'=>$REQUEST->get('section3'),
-                'section1body'=>$REQUEST->get('section1body'),
-                'section2body'=>$REQUEST->get('section2body'),
-                'section3body'=>$REQUEST->get('section3body')
-                ]);
-        
+                $data->section1= $REQUEST->get('section1');
+                $data->section2= $REQUEST->get('section2');
+                $data->section3= $REQUEST->get('section3');
+                $data->section1body= $REQUEST->get('section1body');
+                $data->section2body= $REQUEST->get('section2body');
+                $data->section3body= $REQUEST->get('section3body');
         $data->save();
         DB::commit();
         return redirect('/listtemplates');
-            }
-            catch (\Throwable $th) {
+        }
+            
+        catch (\Throwable $th) {
                 DB::rollBack();
                 dd([$th->getMessage()]);
             }

@@ -52,6 +52,8 @@ Route::get('/createtemplate', [TemplateController::class, 'viewforcreatetemplate
 Route::post('/createtemplate', [TemplateController::class, 'storetemplate']);
 Route::get('/listtemplates', [TemplateController::class, 'listtemplates'])->name('listtemplates');
 Route::get('/edittemplate/{id?}', [TemplateController::class, 'edittemplate'])->name('edittemplate');
+Route::post('/updatetemplate/{id?}', [TemplateController::class, 'updatetemplate'])->name('updatetemplate');
+
 
 /* Routes for Feedback */
 Route::get('/generatefeedback/{id?}',[FeedbackController::class, 'generatefeedback'])->name('generatefeedback');
