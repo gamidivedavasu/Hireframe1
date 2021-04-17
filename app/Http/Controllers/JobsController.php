@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Job; 
+use App\Models\Applyjob;
 
 class JobsController extends Controller
 {
@@ -139,5 +140,45 @@ class JobsController extends Controller
         
         $job->delete();
         return redirect('/jobs')->with('success', 'job Removed');
+    }
+
+    // apply job
+    public function applyJob($id){
+        $job = Job::find($id);
+        // var_dump($job);exit;
+        return view('jobs.applyJob')->with('job', $job);
+    }
+
+    // store apply job data
+    public function applyJobStore(Request $request){
+        // Form validation
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'position'=>'required',
+            'resume.*' => 'required|file|mimes:application/msword, text/anytext, text/plain|max:2048'
+         ]);
+
+        $applyJobModel = new Applyjob;
+        $applyJobModel->name = $request->name;
+        $applyJobModel->email = $request->email;
+        $applyJobModel->phone = $request->phone;
+        $applyJobModel->position = $request->position;
+
+        if($request->file('resume')) {
+            $resume = $request->file('resume');
+            $fileName = time().'_'.$resume->getClientOriginalName();
+            $filePath = $resume->move(storage_path().'/uploads', $fileName);
+            $resume_path = '/storage/' . $filePath . $fileName;
+
+            $applyJobModel->resume_path = $resume_path;
+            $applyJobModel->save();
+
+            return back()
+            ->with('success','Submitted Successfully')
+            ->with('file', $fileName);
+        }
+        
     }
 }

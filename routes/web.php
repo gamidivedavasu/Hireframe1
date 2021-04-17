@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\JobsController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -23,8 +24,11 @@ use App\Http\Controllers\PdfFeedback;
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/jobs', [JobsController::class, 'index']);
-Route::get('/jobs/{id?}', [JobsController::class, 'show']);
+Route::get('/jobs', [JobsController::class, 'index']); 
+Route::get('/jobs/{id?}', [JobsController::class, 'show']); 
+
+Route::get('/apply-now/{id?}', [JobsController::class, 'applyJob']);
+Route::post('/apply-now', [JobsController::class, 'applyJobStore'])->name('applyjob.store');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
