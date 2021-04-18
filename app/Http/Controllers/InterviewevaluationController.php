@@ -53,7 +53,7 @@ class InterviewevaluationController extends Controller
                'description'=>$request->get('d')
          ]);
          $data->save();
-         return redirect('/form')->with('success','Data Inserted');      
+         return redirect('data')->with('success','Data Inserted');      
         
     }
 
