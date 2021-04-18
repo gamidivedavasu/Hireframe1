@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\PdfFeedback;
+use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,6 +62,8 @@ Route::get('data','App\Http\Controllers\InterviewevaluationController@create')->
 Route::post('data','App\Http\Controllers\InterviewevaluationController@store')->name('addform');
 
 
-
-
 });
+
+
+/* Route for Email*/
+Route::get('/sendemail', [MailController::class, 'SendMail']);
