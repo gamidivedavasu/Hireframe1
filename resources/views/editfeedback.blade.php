@@ -1,19 +1,17 @@
 @extends('layouts.app')
 @section('content')
-<form action="{{ route('storefeedback') }}" method="POST">
+<form action="{{ route('editfeedback') }}" method="POST">
     @csrf
     <h1>
     Generate feedback
     </h1>
-    <h2>
     Template name: {{ $data->templatename }}
-    </h2>
+    <br>
     Hello <select id= "selectuser" name ="selectuser" >
-        <option value="disabled selected">Please select user</option>        
+        <option value=" disabled selected">Please select user</option>        
     @foreach($usersdata as $user)
     <option value="{{$user->id}}">{{ $user->name }}</option>
     @endforeach
-    </select>
     <br>
     <br>
     <textarea id="header" name="header" >{{ $data->section1body }} "Job role" position</textarea>

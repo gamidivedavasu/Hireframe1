@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\JobsController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -24,8 +25,11 @@ use App\Http\Controllers\MailController;
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/jobs', [JobsController::class, 'index']);
-Route::get('/jobs/{id?}', [JobsController::class, 'show']);
+Route::get('/jobs', [JobsController::class, 'index']); 
+Route::get('/jobs/{id?}', [JobsController::class, 'show']); 
+
+Route::get('/apply-now/{id?}', [JobsController::class, 'applyJob']);
+Route::post('/apply-now', [JobsController::class, 'applyJobStore'])->name('applyjob.store');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
@@ -37,6 +41,7 @@ Route::post('/login', [LoginController::class, 'store']);
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
 
+/* Routes for Admins */
 Route::group([
     'middleware' => ['auth', 'admin']
 ], function() {
@@ -47,11 +52,14 @@ Route::get('/download-pdf',[PdfFeedback::class,'downloadPDF']);
 Route::get('/createtemplate', [TemplateController::class, 'viewforcreatetemplate'])->name('createtemplate');
 Route::post('/createtemplate', [TemplateController::class, 'storetemplate']);
 Route::get('/listtemplates', [TemplateController::class, 'listtemplates'])->name('listtemplates');
+Route::get('/edittemplate/{id?}', [TemplateController::class, 'edittemplate'])->name('edittemplate');
+Route::post('/updatetemplate/{id?}', [TemplateController::class, 'updatetemplate'])->name('updatetemplate');
+Route::get('/deletetemplate/{id?}', [TemplateController::class, 'deletetemplate'])->name('deletetemplate');
 
 /* Routes for Feedback */
 Route::get('/generatefeedback/{id?}',[FeedbackController::class, 'generatefeedback'])->name('generatefeedback');
 Route::post('/generatefeedback',[FeedbackController::class, 'storefeedback'])->name('storefeedback');
-
+Route::get('/listfeedback', [FeedbackController::class, 'listfeedback'])->name('listfeedback');
 
 Route::get('/posts', function () {
     return view('posts.index');

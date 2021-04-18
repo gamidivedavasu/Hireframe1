@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Feedback extends Model
+class Applyjob extends Model
 {
     use HasFactory;
-    protected $fillable= ['header','bodyresult','bodyfeedback','userid'];
+    public $fillable = ['name', 'email', 'phone', 'position', 'resume_path'];
 }

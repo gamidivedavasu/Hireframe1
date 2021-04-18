@@ -13,7 +13,7 @@ class TemplateController extends Controller
     }
 
     public function storetemplate(Request $REQUEST){
-        $this->validate($request, [
+        $this->validate($REQUEST, [
             'templatename' => 'required',
             'section1' => 'required',
             'section2' => 'required',
@@ -51,6 +51,54 @@ class TemplateController extends Controller
         return view('listtemplates')->with('data',$data);
     }
 
-    public function edittemplate(){
+    public function edittemplate($id){
+        $templatedata = Template::find($id);
+        return view('edittemplate')->with('data',$templatedata);
+    }
+
+    public function updatetemplate(Request $REQUEST, $id){
+        $data=Template::find($id);
+        $this->validate($REQUEST, [
+            'section1' => 'required',
+            'section2' => 'required',
+            'section3' => 'required',
+            'section1body' => 'required',
+            'section2body' => 'required',
+            'section3body' => 'required',
+        ]);
+        DB::beginTransaction();
+        try {
+                $data->section1= $REQUEST->get('section1');
+                $data->section2= $REQUEST->get('section2');
+                $data->section3= $REQUEST->get('section3');
+                $data->section1body= $REQUEST->get('section1body');
+                $data->section2body= $REQUEST->get('section2body');
+                $data->section3body= $REQUEST->get('section3body');
+        $data->save();
+        DB::commit();
+        return redirect('/listtemplates');
+        }
+            
+        catch (\Throwable $th) {
+                DB::rollBack();
+                dd([$th->getMessage()]);
+            }
+    }
+    public function deletetemplate($id){
+        $templatedata = Template::find($id);
+
+        if (!isset($templatedata)){
+            return redirect('/listtemplates')->with('error', 'Template not Found');
+        }
+        DB::beginTransaction();
+        try{
+        $templatedata->delete();
+        DB::commit();
+        return redirect('/listtemplates')->with('success', 'Template Removed');
+        }
+        catch (\Throwable $th) {
+            DB::rollBack();
+            dd([$th->getMessage()]);
+        }
     }
 }

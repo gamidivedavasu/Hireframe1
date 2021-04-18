@@ -8,7 +8,7 @@
     
     @if(Auth::user())
         @if(auth()->user('id')['id'] == $job->user_id)
-            <a href="/jobs/{{$job->id}}/edit/" class="btn btn-default">Edit</a>
+            <a href="/jobs/{{$job->id}}/edit/" class="btn btn-primary">Edit</a>
             
             {!!Form::open(['action' => ['JobsController@destroy', $job->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
                 {{-- hide the delete method for security --}}
@@ -17,6 +17,9 @@
             {!!Form::close()!!}
 
         @endif
+    @else
+        <a href="/apply-now/{{$job->id}}" class="btn btn-primary">Apply Now</a>
     @endif
+    
     
 @endsection
