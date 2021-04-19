@@ -41,7 +41,7 @@ class FeedbackController extends Controller
         }
     $data->save();
         DB::commit();
-        return redirect('get-Feedback');
+        return redirect('listfeedback');
             }
             catch (\Throwable $th) {
                 DB::rollBack();
