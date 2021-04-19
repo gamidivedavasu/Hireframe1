@@ -29,7 +29,10 @@ Route::get('/jobs', [JobsController::class, 'index']);
 Route::get('/jobs/{id?}', [JobsController::class, 'show']); 
 
 Route::get('/apply-now/{id?}', [JobsController::class, 'applyJob']);
-Route::post('/apply-now', [JobsController::class, 'applyJobStore'])->name('applyjob.store');
+Route::post('/apply-now/{id?}', [JobsController::class, 'applyJobStore'])->name('applyjob.store');
+
+Route::get('/jobs/edit/{id?}', [JobsController::class, 'edit']); 
+Route::delete('/jobs/delete/{id?}', [JobsController::class, 'destroy'])->name('jobs.destroy');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
