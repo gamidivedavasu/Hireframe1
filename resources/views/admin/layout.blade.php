@@ -38,7 +38,7 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
 								<i class="lnr lnr-alarm"></i>
-								<span class="badge bg-danger">5</span>
+								<span class="badge bg-danger">{{ Auth::user()->name }}</span>
 							</a>
 							<ul class="dropdown-menu notifications">
 								<li><a href="#" class="notification-item"><span class="dot bg-warning"></span>System space is almost full</a></li>
@@ -49,15 +49,7 @@
 								<li><a href="#" class="more">See all notifications</a></li>
 							</ul>
 						</li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-question-circle"></i> <span>Help</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Basic Use</a></li>
-								<li><a href="#">Working With Data</a></li>
-								<li><a href="#">Security</a></li>
-								<li><a href="#">Troubleshooting</a></li>
-							</ul>
-						</li>
+						
 						<li class="nav-item">
 							<form id="logout-form" action="{{ route('logout') }}" method="post" style="display: none;">
 								@csrf
@@ -82,19 +74,8 @@
 						<li><a href="{{ route('createtemplate') }}" class=""><i class=""></i> <span>Create template</span></a></li>
 						<li><a href="{{route('listtemplates')}}" class=""><i class=""></i> <span>List Templates</span></a></li>
 						<li><a href="{{route('interviewpage')}}" class=""><i class=""></i> <span>Interview Evaluation</span></a></li>
-						<li><a href="" class=""><i class="lnr lnr-alarm"></i> <span>Notifications</span></a></li>
-						<li>
-							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Pages</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-							<div id="subPages" class="collapse ">
-								<ul class="nav">
-									<li><a href="page-profile.html" class="">Profile</a></li>
-									<li><a href="page-login.html" class="">Login</a></li>
-									<li><a href="page-lockscreen.html" class="">Lockscreen</a></li>
-								</ul>
-							</div>
-						</li>
-						<li><a href="tables.html" class=""><i class="lnr lnr-dice"></i> <span>Tables</span></a></li>
-						<li><a href="typography.html" class=""><i class="lnr lnr-text-format"></i> <span>Typography</span></a></li>
+						<li><a href="{{ route ('listfeedback')}}" class=""><i class=""></i> <span>List feedback</span></a></li>
+						<li><a href="typography.html" class=""><i class=""></i> <span>Create Job</span></a></li>
 						<li><a href="{{ route('logout') }}" class=""><i class="lnr lnr-linearicons"></i> <span>Logout</span></a></li>
 						
 					</ul>
