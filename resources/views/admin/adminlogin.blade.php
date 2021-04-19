@@ -34,7 +34,7 @@
 								<!--	<div class="logo text-center"><img src="assets/img/logo-dark.png" alt="Klorofil Logo"></div>-->
 								<p class="lead">Login to Admin Panel</p>
 							</div>
-							<form class="form-auth-small" action="index.php">
+							<form class="form-auth-small" action="{{route('login')}}">
 								<div class="form-group">
 									<label for="signin-email" class="control-label sr-only">Email</label>
 									<input type="email" class="form-control"  id="signin-email" value="samuel.gold@domain.com" placeholder="Email">

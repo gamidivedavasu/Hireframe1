@@ -45,6 +45,8 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::group([
     'middleware' => ['auth', 'admin']
 ], function() {
+
+Route::get('/adminlogin', [LoginController::class, 'adminlogin'])->name('adminlogin');
 Route::get('/get-feedback',[PdfFeedback::class,'getAllFeedback']);
 Route::get('/download-pdf',[PdfFeedback::class,'downloadPDF']);
 
