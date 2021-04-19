@@ -53,5 +53,39 @@ class FeedbackController extends Controller
         $userdata=User::get('name')->where('id',$data->get('userid'));
         return view('listfeedback')->with('data',$data)->with('usernames',$userdata);
     }
-
+    public function editfeedback($id){
+        $feedbackdata = Feedback::find($id);
+        return view('editfeedback')->with('data',$feedbackdata);
+    }
+    public function updatefeedback(Request $REQUEST){
+        
+    
+        $data=Feedback::find($id);
+        $this->validate($REQUEST, [
+            'section1' => 'required',
+            'section2' => 'required',
+            'section3' => 'required',
+            'section1body' => 'required',
+            'section2body' => 'required',
+            'section3body' => 'required',
+        ]);
+        DB::beginTransaction();
+        try {
+                $data->section1= $REQUEST->get('section1');
+                $data->section2= $REQUEST->get('section2');
+                $data->section3= $REQUEST->get('section3');
+                $data->section1body= $REQUEST->get('section1body');
+                $data->section2body= $REQUEST->get('section2body');
+                $data->section3body= $REQUEST->get('section3body');
+        $data->save();
+        DB::commit();
+        return redirect('/listtemplates');
+        }
+            
+        catch (\Throwable $th) {
+                DB::rollBack();
+                dd([$th->getMessage()]);
+            }
+    }
+    
 }

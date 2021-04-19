@@ -60,6 +60,8 @@ Route::get('/deletetemplate/{id?}', [TemplateController::class, 'deletetemplate'
 Route::get('/generatefeedback/{id?}',[FeedbackController::class, 'generatefeedback'])->name('generatefeedback');
 Route::post('/generatefeedback',[FeedbackController::class, 'storefeedback'])->name('storefeedback');
 Route::get('/listfeedback', [FeedbackController::class, 'listfeedback'])->name('listfeedback');
+Route::get('/editfeedback/{id?}',[FeedbackController::class, 'editfeedback'])->name('editfeedback');
+Route::post('/editfeedback',[FeedbackController::class, 'updatefeedback'])->name('updatefeedback');
 
 Route::get('/posts', function () {
     return view('posts.index');

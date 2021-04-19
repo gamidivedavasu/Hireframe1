@@ -55,7 +55,7 @@
 
                 <div class="mb-4">
                     <label for="password_confirmation" class="sr-only">Password again</label>
-                    <input type='text' name="password_confirmation" id="password_confirmation" placeholder="Repeat your Password"
+                    <input type='password' name="password_confirmation" id="password_confirmation" placeholder="Repeat your Password"
                     class="bg-gray-100 border-2 w-full p-4 rounded-lg" value="">
                 </div>
 
