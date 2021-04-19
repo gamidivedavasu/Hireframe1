@@ -59,7 +59,7 @@
 							</ul>
 						</li>
 						<li class="nav-item">
-							<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+							<form id="logout-form" action="{{ route('logout') }}" method="post" style="display: none;">
 								@csrf
 							
 							<button value="submit"> Logout</button>
@@ -79,9 +79,9 @@
 				<nav>
 					<ul class="nav">
 						<li><a href="" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-						<li><a href="{{ route('createtemplate') }}" class=""><i class="lnr lnr-chart-bars"></i> <span>Create template</span></a></li>
-						<li><a href="{{route('listtemplates')}}" class=""><i class="lnr lnr-code"></i> <span>List Templates</span></a></li>
-						<li><a href="{{route("interviewpage")}}" class=""><i class="lnr lnr-cog"></i> <span>Interview Evaluation</span></a></li>
+						<li><a href="{{ route('createtemplate') }}" class=""><i class=""></i> <span>Create template</span></a></li>
+						<li><a href="{{route('listtemplates')}}" class=""><i class=""></i> <span>List Templates</span></a></li>
+						<li><a href="{{route('interviewpage')}}" class=""><i class=""></i> <span>Interview Evaluation</span></a></li>
 						<li><a href="" class=""><i class="lnr lnr-alarm"></i> <span>Notifications</span></a></li>
 						<li>
 							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Pages</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>

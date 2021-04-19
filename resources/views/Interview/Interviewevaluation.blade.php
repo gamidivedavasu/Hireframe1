@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-
+<body>
                         @if(session()->get('success'))
                        <div class="alert alert-success">
                        {{ session()->get('success') }}
@@ -25,7 +25,12 @@
 
                             <label><strong>Job Role</strong></label></strong></label>
     
-                                <input type="text" name="j" class="form-control" value=""/>
+                            <select name="j" class="form-control" id= "JobRole">
+                                  <option >Select Role</option>
+                                      @foreach($role as $y)
+                                        <option  value="{{$y->id}}">{{$y->position}}</option>
+                                      @endforeach
+                                </select>
                                
                             </div> <br>
 
@@ -61,4 +66,32 @@
 
 </form>
 
+<script src="{{asset('jquery.min.js')}}"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('select[name="n"]').on('change', function() {
+            var formula_id = $(this).val();
+            if(formula_id) {
+                $.ajax({
+                    // alert();
+                    url: '../../getrole/'+formula_id,
+                    type: "GET",
+                    dataType: "json",
+                    success:function(data) {
+                        $('#JobRole').empty();
+                        $('#JobRole').append('<option>JobRole</option>');
+                        $.each(data, function(i, e){
+                                $('#JobRole').append('<option value='+e.id+'>'+e.jobTitle+'</option>');
+                            
+                        }); 
+                    }
+                });
+            }else{
+                // alert("ye");
+                // $('select[name="product_id"]').empty();
+            }
+        });
+   });
+</script>
+</body>
 @endsection

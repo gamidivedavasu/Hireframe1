@@ -9,24 +9,19 @@ use Illuminate\Support\Facades\Mail;
 
 class MailController extends Controller
 {
-    public function SendMail()
+    public function SendMail($uid,$head)
     {
 
        $details=[
-       'title'=>'Mail from Happy Tech',
+       'title'=>$head,
        'body'=>'This is for testing  gamil',
     ];
 
     
-    $data=User::all();
-    for($i=0;$i<count($data);$i++)
-    {
-       $to =$data[$i]->email;
-       $info =array(
-          "name"    =>$data[$i]->name,
-          "email"   => $data[$i]->email
-       );
-    }
+    $data=User::where('isadmin','0')->where('id',$uid)->get();
+    $to =$data->pluck('email');
+    
+    
     Mail::to($to)->send(new TestMail($details));
     return "Email Sent";
     }

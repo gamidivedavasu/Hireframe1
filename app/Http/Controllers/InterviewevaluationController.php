@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Interviewevaluation;
 use App\Models\User;
 use App\Models\ApplyJob;
+
 class InterviewevaluationController extends Controller
 {
     /**
@@ -109,11 +110,10 @@ class InterviewevaluationController extends Controller
 
     public function getjobrole($id)
     {
-         $x = SubCategory::where("category_id",$id)
+         $x = Applyjob::where("user_id",$id)
                     ->get();
         return json_encode($x);
     }
-
 
 
 
