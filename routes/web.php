@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\PdfFeedback;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\UploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,8 +26,8 @@ use App\Http\Controllers\MailController;
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/jobs', [JobsController::class, 'index']); 
-Route::get('/jobs/{id?}', [JobsController::class, 'show']); 
+Route::get('/jobs', [JobsController::class, 'index']);
+Route::get('/jobs/{id?}', [JobsController::class, 'show']);
 
 Route::get('/apply-now/{id?}', [JobsController::class, 'applyJob']);
 Route::post('/apply-now', [JobsController::class, 'applyJobStore'])->name('applyjob.store');
@@ -40,6 +41,9 @@ Route::post('/login', [LoginController::class, 'store']);
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
+
+Route::get('/upload',[UploadController::class,'uploadForm']);
+Route::post('/upload',[UploadController::class,'uploadFile'])->name('upload.uploadfile');
 
 /* Routes for Admins */
 Route::group([
