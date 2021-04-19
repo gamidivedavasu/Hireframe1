@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Interviewevaluation;
 use App\Models\User;
+use App\Models\ApplyJob;
+
 class InterviewevaluationController extends Controller
 {
     /**
@@ -25,7 +27,8 @@ class InterviewevaluationController extends Controller
     public function create()
     {
         $data = User::where('isadmin','0')->get();
-        return view('interview.interviewevaluation',compact('data'));
+        $role= Applyjob::all();
+        return view('interview.interviewevaluation',compact('data','role'));
     }
 
     /**
@@ -38,7 +41,10 @@ class InterviewevaluationController extends Controller
     {
         $request->validate([
             'n'=>'required',
-            'category'=>'required'
+            'jobrole'=>'required',
+            'category'=>'required',
+            'option'=>'required',
+            'description'=>'required'
             
             
             
@@ -102,7 +108,12 @@ class InterviewevaluationController extends Controller
         //
     }
 
-
+    public function getjobrole($id)
+    {
+         $x = Applyjob::where("user_id",$id)
+                    ->get();
+        return json_encode($x);
+    }
 
 
 

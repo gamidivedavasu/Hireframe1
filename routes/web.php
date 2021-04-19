@@ -11,7 +11,6 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\PdfFeedback;
 use App\Http\Controllers\MailController;
-use App\Http\Controllers\UploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,14 +25,18 @@ use App\Http\Controllers\UploadController;
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/jobs', [JobsController::class, 'index']);
-Route::get('/jobs/{id?}', [JobsController::class, 'show']);
+Route::get('/jobs', [JobsController::class, 'index']); 
+Route::get('/jobs/{id?}', [JobsController::class, 'show']); 
 
 Route::get('/apply-now/{id?}', [JobsController::class, 'applyJob']);
-Route::post('/apply-now', [JobsController::class, 'applyJobStore'])->name('applyjob.store');
+Route::post('/apply-now/{id?}', [JobsController::class, 'applyJobStore'])->name('applyjob.store');
+
+Route::get('/jobs/edit/{id?}', [JobsController::class, 'edit']); 
+Route::delete('/jobs/delete/{id?}', [JobsController::class, 'destroy'])->name('jobs.destroy');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+Route::get('/logout', [LogoutController::class, 'store'])->name('logout');
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
@@ -42,8 +45,7 @@ Route::post('/login', [LoginController::class, 'store']);
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/upload',[UploadController::class,'uploadForm']);
-Route::post('/upload',[UploadController::class,'uploadFile'])->name('upload.uploadfile');
+Route::get('/adminlogin', [LoginController::class, 'adminlogin'])->name('adminlogin');
 
 /* Routes for Admins */
 Route::group([
@@ -64,6 +66,10 @@ Route::get('/deletetemplate/{id?}', [TemplateController::class, 'deletetemplate'
 Route::get('/generatefeedback/{id?}',[FeedbackController::class, 'generatefeedback'])->name('generatefeedback');
 Route::post('/generatefeedback',[FeedbackController::class, 'storefeedback'])->name('storefeedback');
 Route::get('/listfeedback', [FeedbackController::class, 'listfeedback'])->name('listfeedback');
+Route::get('/editfeedback/{id?}',[FeedbackController::class, 'editfeedback'])->name('editfeedback');
+Route::post('/editfeedback',[FeedbackController::class, 'updatefeedback'])->name('updatefeedback');
+
+Route::get('/admindashboard', [DashboardController::class, 'admindash'])->name('admindashboard');
 
 Route::get('/posts', function () {
     return view('posts.index');
@@ -72,10 +78,10 @@ Route::get('/posts', function () {
 /* Routes for Interview */
 Route::get('data','App\Http\Controllers\InterviewevaluationController@create')->name('interviewpage');
 Route::post('data','App\Http\Controllers\InterviewevaluationController@store')->name('addform');
-
+Route::get('getrole/{id}','App\Http\Controllers\InterviewevaluationController@getjobrole');
 
 });
 
 
 /* Route for Email*/
-Route::get('/sendemail', [MailController::class, 'SendMail']);
+Route::get('/sendemail/{uid}/{head}', [MailController::class, 'SendMail'])->name('sendemail');

@@ -1,7 +1,12 @@
-@extends('layouts.app')
+@extends('admin.layout')
 @section('content')
+<div class="main">
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <div class="container-fluid">
     <form action="{{ route('createtemplate') }}" method="POST">
         @csrf
+        <h1> Create Template </h1> <br>
         Let's name your template:
         <input type="text" name="templatename" id="templateid"> 
         <br>
@@ -30,4 +35,7 @@
         <br>
         <button type="submit"> Create template</button>
     </form>
+</div>
+</div>
+</div>
 @endsection

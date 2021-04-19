@@ -150,7 +150,7 @@ class JobsController extends Controller
     }
 
     // store apply job data
-    public function applyJobStore(Request $request){
+    public function applyJobStore(Request $request, $id){
         // Form validation
         $this->validate($request, [
             'name' => 'required',
@@ -170,7 +170,7 @@ class JobsController extends Controller
             $resume = $request->file('resume');
             $fileName = time().'_'.$resume->getClientOriginalName();
             $filePath = $resume->move(storage_path().'/uploads', $fileName);
-            $resume_path = '/storage/' . $filePath . $fileName;
+            $resume_path = $filePath . $fileName;
 
             $applyJobModel->resume_path = $resume_path;
             $applyJobModel->save();

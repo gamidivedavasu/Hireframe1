@@ -20,6 +20,7 @@ class CreateApplyjobsTable extends Migration
             $table->string('phone');
             $table->string('position');
             $table->string('resume_path')->nullable();
+            $table->integer('user_id');
             $table->timestamps();
         });
     }
