@@ -1,5 +1,9 @@
-@extends('layouts.app')
+@extends('admin.layout')
 @section('content')
+<div class="main">
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
+    <div class="container-fluid">
     <table id="example1" class="table table-bordered table-striped">
     <tbody>
     @foreach($data as $d)
@@ -20,5 +24,8 @@
     @endforeach
                 </tbody>
               </table>
-              
+            </div>
+          </div>
+        </div>
+      
               @endsection       

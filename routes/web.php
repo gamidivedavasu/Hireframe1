@@ -41,12 +41,12 @@ Route::post('/login', [LoginController::class, 'store']);
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
 
+Route::get('/adminlogin', [LoginController::class, 'adminlogin'])->name('adminlogin');
+
 /* Routes for Admins */
 Route::group([
     'middleware' => ['auth', 'admin']
 ], function() {
-
-Route::get('/adminlogin', [LoginController::class, 'adminlogin'])->name('adminlogin');
 Route::get('/get-feedback',[PdfFeedback::class,'getAllFeedback']);
 Route::get('/download-pdf',[PdfFeedback::class,'downloadPDF']);
 
@@ -64,6 +64,8 @@ Route::post('/generatefeedback',[FeedbackController::class, 'storefeedback'])->n
 Route::get('/listfeedback', [FeedbackController::class, 'listfeedback'])->name('listfeedback');
 Route::get('/editfeedback/{id?}',[FeedbackController::class, 'editfeedback'])->name('editfeedback');
 Route::post('/editfeedback',[FeedbackController::class, 'updatefeedback'])->name('updatefeedback');
+
+Route::get('/admindashboard', [DashboardController::class, 'admindash'])->name('admindashboard');
 
 Route::get('/posts', function () {
     return view('posts.index');

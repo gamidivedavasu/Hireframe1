@@ -13,8 +13,6 @@
 	<link rel="stylesheet" href="assets/vendor/linearicons/style.css">
 	<!-- MAIN CSS -->
 	<link rel="stylesheet" href="assets/css/main.css">
-	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
-	<link rel="stylesheet" href="assets/css/demo.css">
 	<!-- GOOGLE FONTS -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
 	<!-- ICONS -->
@@ -34,14 +32,15 @@
 								<!--	<div class="logo text-center"><img src="assets/img/logo-dark.png" alt="Klorofil Logo"></div>-->
 								<p class="lead">Login to Admin Panel</p>
 							</div>
-							<form class="form-auth-small" action="{{route('login')}}">
+							<form class="form-auth-small" action="{{route('login')}}" method="POST">
+								@csrf
 								<div class="form-group">
 									<label for="signin-email" class="control-label sr-only">Email</label>
-									<input type="email" class="form-control"  id="signin-email" value="samuel.gold@domain.com" placeholder="Email">
+									<input type="email" class="form-control"  id="email" name="email" placeholder="Email">
 								</div>
 								<div class="form-group">
 									<label for="signin-password" class="control-label sr-only">Password</label>
-									<input type="password" class="form-control" id="signin-password" value="thisisthepassword" placeholder="Password">
+									<input type="password" class="form-control" id="password" name="password" placeholder="Password">
 								</div>
 								<div class="form-group clearfix">
 									<label class="fancy-checkbox element-left">
