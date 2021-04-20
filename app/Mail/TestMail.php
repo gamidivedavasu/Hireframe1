@@ -29,6 +29,6 @@ class TestMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Test Mail from Happy tech ')->view('emails.TestMail');
+        return $this->subject('Feedback  Mail from Happy tech ')->view('emails.TestMail');
     }
 }

@@ -85,4 +85,4 @@ Route::get('getrole/{id}','App\Http\Controllers\InterviewevaluationController@ge
 
 
 /* Route for Email*/
-Route::get('/sendemail/{uid}/{head}', [MailController::class, 'SendMail'])->name('sendemail');
+Route::get('/sendemail/{uid}/{head}/{body}', [MailController::class, 'SendMail'])->name('sendemail');

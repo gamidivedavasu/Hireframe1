@@ -9,12 +9,12 @@ use Illuminate\Support\Facades\Mail;
 
 class MailController extends Controller
 {
-    public function SendMail($uid,$head)
+    public function SendMail($uid,$head,$body)
     {
 
        $details=[
        'title'=>$head,
-       'body'=>'This is for testing  gamil',
+       'body'=>$body,
     ];
 
     

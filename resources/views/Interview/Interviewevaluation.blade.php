@@ -21,7 +21,7 @@
                               <select name="n" class="form-control">
                                   <option>Select User</option>
                                       @foreach($data as $x)
-                                        <option>{{$x->name}}</option>
+                                        <option vlaue = "{{$x->id}}">{{$x->name}}</option>
                                       @endforeach
                                 </select>
                             </div> 
@@ -31,9 +31,7 @@
     
                             <select name="j" class="form-control" id= "JobRole">
                                   <option >Select Role</option>
-                                      @foreach($role as $y)
-                                        <option  value="{{$y->id}}">{{$y->position}}</option>
-                                      @endforeach
+                                      
                                 </select>
                                
                             </div> <br>
@@ -85,7 +83,7 @@
                         $('#JobRole').empty();
                         $('#JobRole').append('<option>JobRole</option>');
                         $.each(data, function(i, e){
-                                $('#JobRole').append('<option value='+e.id+'>'+e.jobTitle+'</option>');
+                                $('#JobRole').append('<option value='+e.id+'>'+e.position+'</option>');
                             
                         }); 
                     }

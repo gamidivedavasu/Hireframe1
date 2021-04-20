@@ -41,11 +41,10 @@ class InterviewevaluationController extends Controller
     {
         $request->validate([
             'n'=>'required',
-            'jobrole'=>'required',
+            'j'=>'required',
             'category'=>'required',
-            'option'=>'required',
-            'description'=>'required'
-            
+            'opt'=>'required',
+            'd'=>'required'
             
             
         ]);	
@@ -120,4 +119,4 @@ class InterviewevaluationController extends Controller
  
 
 }
- 
+
