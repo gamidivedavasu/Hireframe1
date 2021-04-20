@@ -11,7 +11,6 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\PdfFeedback;
 use App\Http\Controllers\MailController;
-use App\Http\Controllers\UploadController;
 
 /*
 |--------------------------------------------------------------------------
