@@ -1,5 +1,9 @@
-@extends('layouts.app')
+@extends('admin.layout')
 @section('content')
+<div class="main">
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <div class="container-fluid">
     <form action="{{ route('updatetemplate',$data->id) }}" method="POST" enctype = 'multipart/form-data'>
         @csrf
         Template name: {{ $data->templatename }}
@@ -29,4 +33,5 @@
         <br>
         <button type="submit"> Update template</button>
     </form>
+        </div></div></div>
 @endsection
