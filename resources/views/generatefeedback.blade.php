@@ -1,5 +1,9 @@
-@extends('layouts.app')
+@extends('admin.layout')
 @section('content')
+<div class="main">
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <div class="container-fluid">
 <form action="{{ route('storefeedback') }}" method="POST">
     @csrf
     <h1>
@@ -25,4 +29,5 @@
      
     <button type="submit"> Generate feedback</button>
 </form>
+        </div></div></div>
 @endsection

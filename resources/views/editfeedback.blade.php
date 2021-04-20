@@ -1,5 +1,9 @@
-@extends('layouts.app')
+@extends('admin.layout')
 @section('content')
+<div class="main">
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <div class="container-fluid">
 <form action="{{ route('editfeedback') }}" method="POST">
     @csrf
     <h1>
@@ -15,4 +19,5 @@
      
     <button type="submit"> Update feedback</button>
 </form>
+        </div></div></div>
 @endsection

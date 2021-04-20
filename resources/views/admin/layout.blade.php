@@ -83,6 +83,6 @@
 			</div>
 		</div>
 		<!-- END LEFT SIDEBAR -->
-
+		@include('inc.messages')
         @yield('content')
         
