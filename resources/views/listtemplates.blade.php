@@ -6,6 +6,19 @@
     <div class="container-fluid">
     <table id="example1" class="table table-bordered table-striped">
     <tbody>
+      <tr>
+        <td></td>
+        <th scope="col">Template Name</th>
+        <th scope="col">Section 1</th>
+        <th scope="col">Section 1 contents</th>
+        <th scope="col">Section 2</th>
+        <th scope="col">Section 2 contents</th>
+        <th scope="col">Section 3</th>
+        <th scope="col">Section 3 contents</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
     @foreach($data as $d)
     <tr>
         <td>{{$loop->iteration}}</td>

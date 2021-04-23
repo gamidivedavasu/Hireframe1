@@ -52,7 +52,7 @@ Route::group([
     'middleware' => ['auth', 'admin']
 ], function() {
 Route::get('/get-feedback',[PdfFeedback::class,'getAllFeedback']);
-Route::get('/download-pdf',[PdfFeedback::class,'downloadPDF']);
+Route::get('/download-pdf',[PdfFeedback::class,'downloadPDF'])->name('downloadpdf');
 
 /* Routes for Templates */
 Route::get('/createtemplate', [TemplateController::class, 'viewforcreatetemplate'])->name('createtemplate');

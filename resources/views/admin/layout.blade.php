@@ -75,8 +75,8 @@
 						<li><a href="{{route('listtemplates')}}" class=""><i class=""></i> <span>List Templates</span></a></li>
 						<li><a href="{{route('interviewpage')}}" class=""><i class=""></i> <span>Interview Evaluation</span></a></li>
 						<li><a href="{{ route ('listfeedback')}}" class=""><i class=""></i> <span>List feedback</span></a></li>
-						<li><a href="typography.html" class=""><i class=""></i> <span>Create Job</span></a></li>
-						<li><a href="{{ route('logout') }}" class=""><i class=""></i> <span>Logout</span></a></li>
+						<li><a href="{{ route ('downloadpdf') }}" class=""><i class=""></i> <span>Download Feedback</span></a></li>
+						<li><a href="{{ route('logout') }}" class=""><i class="lnr lnr-linearicons"></i> <span>Logout</span></a></li>
 						
 					</ul>
 				</nav>

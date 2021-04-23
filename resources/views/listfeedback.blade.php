@@ -6,6 +6,14 @@
 				<div class="container-fluid">
     <table id="example1" class="table table-bordered table-striped">
     <tbody>
+        <tr>
+            <td></td>
+            <th scope="col">Header</th>
+            <th scope="col">Interview result</th>
+            <th scope="col">Interview feedback</th>
+            <th scope="col">User Id</th>
+            <th></th>
+          </tr>
     @foreach($data as $d)
     <form method="post" action="{{route('sendbulkmail',['head'=>$d->header,'bodyresult'=>$d->bodyresult])}}">
 	@csrf
@@ -16,8 +24,7 @@
                   <td>{{$d->bodyresult}}</td>
                   <td>{{$d->bodyfeedback}}</td>
                   <td>{{$d->userid }}</td>
-                  <td><a href="{{route('editfeedback',$d->id)}}">Edit Feedback</a></td>
-                  <td><a href="{{route('sendemail',['uid'=>$d->userid,'head'=>$d->header ,'body'=>$d-> bodyresult])}}">Email</a></td>
+                  <td><a href="{{route('sendemail',['uid'=>$d->userid,'head'=>$d->header ,'body'=>$d-> bodyresult])}}">Send Email</a></td>
     </tr>
     
     @endforeach
