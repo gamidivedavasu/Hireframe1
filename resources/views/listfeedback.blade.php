@@ -15,7 +15,10 @@
             <th></th>
           </tr>
     @foreach($data as $d)
+    <form method="post" action="{{route('sendbulkmail',['head'=>$d->header,'bodyresult'=>$d->bodyresult])}}">
+	@csrf
     <tr>
+    <td><input type="checkbox" name="result[]" value="{{$d->userid }}"></td>
         <td>{{$loop->iteration}}</td>
                   <td>{{$d->header}}</td>
                   <td>{{$d->bodyresult}}</td>
@@ -23,10 +26,12 @@
                   <td>{{$d->userid }}</td>
                   <td><a href="{{route('sendemail',['uid'=>$d->userid,'head'=>$d->header ,'body'=>$d-> bodyresult])}}">Send Email</a></td>
     </tr>
-    @method('PATCH')
+    
     @endforeach
 </tbody>
 </table>
+<input type="submit" value="Submit">
+</form>
     
 </div>  
 

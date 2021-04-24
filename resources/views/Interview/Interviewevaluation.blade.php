@@ -21,7 +21,7 @@
                               <select name="n" class="form-control">
                                   <option>Select User</option>
                                       @foreach($data as $x)
-                                        <option vlaue = "{{$x->id}}">{{$x->name}}</option>
+                                        <option value = "{{$x->id}}">{{$x->name}}</option>
                                       @endforeach
                                 </select>
                             </div> 
