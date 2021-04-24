@@ -15,7 +15,8 @@ class FeedbackController extends Controller
     
     public function generatefeedback($id){
         $templatedata = Template::find($id);
-        $usersdata= User::where('isadmin',0)->get();
+        $usersdata= User::where('isadmin',0)->get()->toArray(); 
+        
         return view('Generatefeedback')->with('usersdata',$usersdata)->with('data',$templatedata);
     }
 
