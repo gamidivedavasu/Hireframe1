@@ -7,18 +7,22 @@
     <table id="example1" class="table table-bordered table-striped">
     <tbody>
         <tr>
+        
+        <td></td>
             <td></td>
             <th scope="col">Header</th>
             <th scope="col">Interview result</th>
             <th scope="col">Interview feedback</th>
             <th scope="col">User Id</th>
-            <th></th>
+            <th scope="col">Email</th>
+            
           </tr>
     @foreach($data as $d)
     <form method="post" action="{{route('sendbulkmail',['head'=>$d->header,'bodyresult'=>$d->bodyresult])}}">
 	@csrf
     <tr>
     <td><input type="checkbox" name="result[]" value="{{$d->userid }}"></td>
+    
         <td>{{$loop->iteration}}</td>
                   <td>{{$d->header}}</td>
                   <td>{{$d->bodyresult}}</td>

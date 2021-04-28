@@ -43,6 +43,9 @@
                         
 
                         @if(Auth::user())
+                        <li class="nav-item">
+                                <a class="nav-link" href="{{ route('feedback') }}">{{ __('Feedback') }}</a>
+                            </li>
                             @if(auth()->user('id')['type'] == 'company')
                                 <li class="nav-item">
                                     <a class="nav-link" href="/jobs/create">Create Job <span class="sr-only">(current)</span></a>

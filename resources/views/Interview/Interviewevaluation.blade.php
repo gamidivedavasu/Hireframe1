@@ -37,7 +37,7 @@
                             </div> <br>
 
                             <div class="form-group">
-                                <label><strong>TELEPHONIC INTERVIEW AND ONLINE INTERVIEW</b></label><br>
+                                <label><strong>Telephonic Interview And Online Interview</b></label><br>
                                 </strong></label><br>
                                 <label><input type="checkbox" name="category[]" value="Communication"> Communication Skills</label>
                                 <label><input type="checkbox" name="category[]" value="Gestures"> Gestures</label>
@@ -51,11 +51,11 @@
                                 </strong></label><br>                          
                             </div>  </strong></label><br>
 
-                            <div class="form-group">
+                            <div class="form-group"><strong>
                             <label class="radio-inline">
-                               <input type="radio" id="option2"  value="selected" name="opt">Selected</label>
+                               <input type="radio" id="option2"  value="selected" name="opt">Selected</</label>
                          <label class="radio-inline">
-                        <input type="radio" id="option2"  value="rejected"name="opt">rejected</label>
+                        <input type="radio" id="option2"  value="rejected"name="opt">rejected</label> </strong>
                            </div>
                             
                             <div class="form-group">

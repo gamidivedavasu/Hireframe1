@@ -7,11 +7,24 @@ use App\Models\Feedback;
 use App\Models\Template;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class FeedbackController extends Controller
 {
-    public function index(){}
+    public function index(){
+        if(Auth::check())
+        {
+            if(Auth::user()->isadmin==0)
+            {
+                $id=Auth::id();
+                $data = Feedback::where('userid',$id)->get();
+                return view('userfeedback',compact('data'));
+            }
+        }
 
+
+
+    }
     
     public function generatefeedback($id){
         $templatedata = Template::find($id);
