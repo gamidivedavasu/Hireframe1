@@ -10,15 +10,26 @@
     Generate feedback
     </h1>
     <h2>
+        
     Template Chosen: {{ $data->templatename }}
     </h2>
     For <select id= "selectuser" name ="selectuser" >
         <option value="disabled selected">Please select user</option>        
     @foreach($usersdata as $user)
-    <option value="{{$user->id}}">{{ $user->name }}</option>
+    <option value="{{$user['id']}}">{{ $user['name'] }}</option>
     @endforeach
     </select>
     <br>
+    @error('selectuser')
+<div class="alert alert-danger">
+    {{ $message }}
+</div>
+@enderror
+@if(session('error'))
+    <div class="alert alert-danger">
+        {{session('error')}}
+    </div>
+@endif
     <br>
     <textarea id="header" name="header" >{{ $data->section1body }} </textarea>
     <br>
